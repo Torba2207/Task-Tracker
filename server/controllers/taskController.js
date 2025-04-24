@@ -53,7 +53,7 @@ export const getTasks=async(req,res)=>{
 }
 
 
-export const deleteTasks=async(req,res)=>{
+export const deleteTask=async(req,res)=>{
     const {taskId}=req.params
 
     try{
