@@ -4,6 +4,8 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import {default as authRoutes} from './routes/authRoutes.js'
+import {default as taskRoutes} from './routes/taskRoutes.js'
+import {default as userRoutes} from './routes/userRoutes.js'
 
 
 const app = express();
@@ -26,6 +28,8 @@ app.get('/', (req, res) => {
 });
 
 app.use("/api/auth", authRoutes)
+app.use("/api",taskRoutes)
+app.use("/api/users",userRoutes)
 
 const PORT = process.env.PORT || 5000;
 
