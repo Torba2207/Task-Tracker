@@ -2,7 +2,7 @@ import User from "../models/User";
 
 
 export const register = async (req, res) => {
-    const {userName,email,password}=req.body
+    const {username,email,password}=req.body
     try {
         const existingUser = await User.findOne({email})
         if(existingUser){
