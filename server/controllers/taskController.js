@@ -1,13 +1,15 @@
 import Task from "../models/Task.js";
+import { parse } from 'date-fns';
 
 
 export const addTask=async(req,res)=>{
     const {title, description, dueDate}=req.body
+    const parsedDueDate = parse(dueDate, 'dd.MM.yyyy', new Date());
     try{
         const newTask=new Task({
             title,
             description,
-            dueDate,
+            dueDate:parsedDueDate,
             user: req.user.id
         })
         await newTask.save()
